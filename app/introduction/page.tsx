@@ -2,8 +2,8 @@ import { TypeAnimation } from "react-type-animation"
 
 export default function Introduction() {
     return (
-        <section className="min-h-screen flex justify-center items-center">
-            <div className="flex flex-col items-center justify-center gap-5">
+        <section className="min-h-screen min-w-screen flex justify-center items-center">
+            <div className="flex flex-col items-center justify-center gap-8">
                 <h2 className="text-5xl font-extralight">
                     <TypeAnimation
                         sequence={[
@@ -22,7 +22,15 @@ export default function Introduction() {
                 </h2>
 
                 <h3 className="text-4xl font-extralight">
-                    
+                    <TypeAnimation
+                        sequence={[
+                            "Grow, Live, Learn",
+                            3000,
+                            "Stay Still is Falling Behind",
+                            3000,
+                            "Every Opportunity is a Learning Opportunity",
+                        ]}
+                    />
                 </h3>
             </div>
         </section>

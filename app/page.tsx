@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <div className="border-2 min-h-screen flex justify-center align-center">
-      <Introduction />
+      <Homepage />
     </div>
   );
 };

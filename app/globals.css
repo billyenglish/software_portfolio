@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+.homepage-subtitle {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    line-height: 12rem;
+}
