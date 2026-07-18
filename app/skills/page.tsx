@@ -45,7 +45,7 @@ export default function Skills() {
     return (
         <section className="border-2 min-h-screen flex flex-col gap-20 justify-center items-center">
             <Nav />
-            <h2 className="text-4xl font-extralight tracking-wider">
+            <h2 className="text-4xl font-extralight tracking-tight">
                 Skills
             </h2>
 
