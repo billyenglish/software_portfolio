@@ -10,7 +10,7 @@ const navMenu = [
     { navTitle: 'Skills', navLink: '/skills', id: 2 },
     { navTitle: 'Experience', navLink: '/experience', id: 3 },
     { navTitle: 'About Me', navLink: '/about', id: 4 },
-    { navTitle: 'Education', navLink: '/education', id: 5 },
+    { navTitle: 'Education', navLink: '/certifications_education', id: 5 },
     { navTitle: 'Contact', navLink: '/contact', id: 6 }
 ];
 
