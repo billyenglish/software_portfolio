@@ -4,6 +4,15 @@ import Link from "next/link";
 import { FaBars, FaX, FaMoon } from "react-icons/fa6";
 import { MdSunny } from "react-icons/md";
 
+const navMenu = [
+    { navTitle: 'Home', navLink: '/', id: 0 },
+    { navTitle: 'Featured Projects', navLink: '/featured_projects', id: 1 },
+    { navTitle: 'Skills', navLink: '/skills', id: 2 },
+    { navTitle: 'Experience', navLink: '/experience', id: 3 },
+    { navTitle: 'About Me', navLink: '/about', id: 4 },
+    { navTitle: 'Education', navLink: '/education', id: 5 },
+    { navTitle: 'Contact', navLink: '/contact', id: 6 }
+];
 
 export default function Nav() {
 
@@ -40,6 +49,18 @@ export default function Nav() {
                         ?   <FaBars className="text-2xl cursor-pointer" />
                         : <FaX className="text-2xl cursor-pointer" /> }
                 </button>
+            </div>
+
+            <div className="border-2 absolute right-0 top-20">
+                <ul>
+                    {navMenu.map((links) => (
+                        <li key={links.id}>
+                            <Link href={links.navLink}>
+                                {links.navTitle}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </nav>
     );
