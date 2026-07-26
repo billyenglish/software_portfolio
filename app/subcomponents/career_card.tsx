@@ -32,7 +32,7 @@ export default function CareerCard({
     return (
         <div className="flex flex-col w-175 gap-2 border-2 p-10 rounded-[5]" key={key}>
             <h3 className="text-xl font-bold tracking-tight flex items-center gap-6">
-                {icon}
+                <span className="text-4xl">{icon}</span>
                 {companyName}
             </h3>
             <h4 className="text-lg font-normal">
