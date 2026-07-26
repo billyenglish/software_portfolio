@@ -4,8 +4,6 @@ import Footer from "../components/footer";
 import { TypeAnimation } from "react-type-animation";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 
-
-
 export default function Homepage() {
     return (
         <section className="border-2 min-w-full flex flex-col items-center justify-center">
@@ -44,12 +42,12 @@ export default function Homepage() {
                     </h3>
                 </div>
                 <div className="flex gap-4">
-                    <div className="border-2 h-5 w-5 rounded-2xl bg-black"></div>
-                    <div className="border-2 h-5 w-5 rounded-2xl bg-black"></div>
-                    <div className="border-2 h-5 w-5 rounded-2xl bg-black"></div>
+                    <div className="border-2 h-5 w-5 rounded-2xl bg-black animate-bounce [animation-delay:0]"></div>
+                    <div className="border-2 h-5 w-5 rounded-2xl bg-black animate-bounce [animation-delay:200ms]"></div>
+                    <div className="border-2 h-5 w-5 rounded-2xl bg-black animate-bounce [animation-delay:400ms]"></div>
                 </div>
                 <div>
-                    <button>
+                    <button className="cursor-pointer">
                         <FaArrowAltCircleRight
                             className="text-4xl"
                         />
