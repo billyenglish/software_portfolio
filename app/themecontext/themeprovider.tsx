@@ -1,27 +1,29 @@
 "use client";
-import { useState, ReactNode } from "react";
-import ThemeContext from "../themecontext/themecontext"
+
+import React, { useState } from "react";
+import ThemeContext from "./themecontext";
 
 type ThemeProviderProps = {
-    children: ReactNode;
-    handleDarkMode: () => void;
-}
+    children: React.ReactNode;
+};
 
-export default function ThemeProvider({ children }: ThemeProviderProps) {
-
+const ThemeProvider = ({ children }: ThemeProviderProps) => {
     const [darkMode, setDarkMode] = useState(true);
 
     const handleDarkMode = () => {
-        setDarkMode(darkMode => !darkMode);
-    }
+        setDarkMode((prev) => !prev);
+    };
 
     return (
         <ThemeContext.Provider
             value={{
                 darkMode,
                 handleDarkMode,
-            }}>
+            }}
+        >
             {children}
         </ThemeContext.Provider>
-    )
-}
+    );
+};
+
+export default ThemeProvider;
