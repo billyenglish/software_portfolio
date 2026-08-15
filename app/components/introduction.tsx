@@ -16,7 +16,7 @@ export default function Introduction() {
                 flex-col
                 items-center
                 justify-center
-                bg-[#070B14]
+                ${ darkMode ? "bg-[var(--dark-background)]" : "bg-[var(--light-background)]" }
         `}>
             <h3
                 className={`
@@ -30,8 +30,7 @@ export default function Introduction() {
                     2xl:leading-30
                     font-light
                     text-center
-                    light-custom-title
-                    light-custom-title::after
+                    ${ darkMode ? "text-[var(--dark-main-text)]" : "text-[(var(--light-main-text)]" }
                 `}>
                 <TypeAnimation
                     sequence={[
