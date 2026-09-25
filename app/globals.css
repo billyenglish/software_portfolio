@@ -1,22 +1,29 @@
 @import "tailwindcss";
 
-:root {
-    /* Light Mode */
-    --light-background: #F8FAFC;
-    --light-main-text: #0F172A;
-    --light-secondary-text: #475569;
-    --light-accent: #0284C7;
-    --light-cards: #FFFFFF;
-    --light-borders: #E2E8F0;
-    --light-hover: #E0F2FE;
+@keyframes ticker {
+  from {
+    transform: translateX(-100%);
+  }
 
-    /* Dark Mode */
+  to {
+    transform: translateX(110%);
+  }
+}
 
-    --dark-background: #070B14;
-    --dark-main-text: #F8FAFC;
-    --dark-secondary-text: #94A3B8;
-    --dark-accent: #38BDF8;
-    --dark-cards: #0F172A;
-    --dark-borders: #1E293B;
-    --dark-hover: #1E293B;
+.animate-ticker {
+  animation: ticker 25s linear infinite;
+}
+
+@keyframes reverse-ticker {
+  from {
+    transform: translateX(110%);
+  }
+
+  to {
+    transform: translateX(-150%);
+  }
+}
+
+.animate-ticker-reverse {
+  animation: reverse-ticker 25s linear infinite;
 }
