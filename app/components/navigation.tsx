@@ -1,115 +1,140 @@
 "use client";
-import { useState, useContext } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { CgClose } from "react-icons/cg";
-import { IoSunnySharp } from "react-icons/io5";
-import { IoMoon } from "react-icons/io5";
+import { IoMdClose } from "react-icons/io";
+import { CgMenuGridO } from "react-icons/cg";
 import Link from "next/link";
-import ThemeContext from "../themecontext/themecontext";
+import { useState } from "react";
+import { FaLinkSlash } from "react-icons/fa6";
 
-const navMenuItems = [
-    { title: "Home", href: "/", id: 0 },
-    { title: "Feature Projects", href: "/feature_projects", id: 1 },
-    { title: "Skills", href: "/skills", id: 2 },
-    { title: "Experience", href: "/experience", id: 3 },
-    { title: "Education", href: "/education", id: 4 },
-    { title: "About Me", href: "/aboutme", id: 5 },
-    { title: "Contact", href: "/contact", id: 6 },
+const navMenu = [
+    { title: 'Home', links: "/", id: 0 },
+    { title: 'Projects', links: "/projects", id: 1 },
+    { title: 'Skills', links: "/skills", id: 2 },
+    { title: 'Experience', links: "/experience", id: 3 },
+    { title: 'About', links: "/about", id: 4 },
+    { title: 'Contact', links: "/contact", id: 5 },
 ];
 
-export default function Navigation() {
+export default function Nav() {
 
-    const [navOpen, setNavOpen] = useState(true);
+    const [createNavMenu, setCreateNavMenu] = useState(true);
 
-    const handleNavOpen = () => {
-        setNavOpen(navOpen => !navOpen);
+    const handleCreateNavMenu = () => {
+        setCreateNavMenu(prevMenu => !prevMenu);
     }
-
-    const { darkMode, handleDarkMode } = useContext(ThemeContext);
 
     return (
         <nav
-            className={`
+            className="
                 absolute
-                top-0
-                left-0
-                w-full
                 flex
                 justify-between
                 items-center
-                p-5
                 h-20
-                z-20
-        `}>
+                w-screen
+                pt-8
+                pb-8
+                pl-8
+                pr-8
+            "
+        >
             <div>
                 <h1
-                    className={`
-                        text-xl
-                        text-bold
+                    className="
+                        text-lg
                         tracking-tighter
-                        ${darkMode ? "text-[var(--dark-accent)]" : "text-[var(--light-main-text)]"}
+                        cursor-pointer
                     "
-                `}>
-                    { navOpen ? "Billy English" : "Software Engineer"}
+                >
+                    Billy English
                 </h1>
             </div>
 
-            <div className={
-                 navOpen ? "hidden" : "absolute translate-x-0 top-20 right-0 z-30 flex flex-col duration-500 transition-all ease-in-out"}>
+            <div
+                className="
+                    hidden
+                    lg:flex
+                    items-center
+                    gap-12
+                "
+            >
+                <div>
+                    <ul
+                        className="
+                            flex
+                            gap-8
+                        "
+                    >
+                        {navMenu.map((items) => (
+                            <li
+                                key={items.id}
+                                className="
+                                    tracking-tighter
+                                    font-medium
+                                    cursor-pointer
+                                    text-md
+                                "
+                            >
+                                <Link href={items.links}>
+                                    {items.title}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                className="
+                    lg:hidden
+                    items-center
+                "
+            >
+                <button
+                    onClick={handleCreateNavMenu}
+                    className="
+                        text-3xl
+                    "
+                >
+                    {createNavMenu ? <CgMenuGridO /> : <IoMdClose />}
+                </button>
+            </div>
+
+            <div
+                className="
+                    absolute
+                    w-screen
+                    h-155
+                    left-0
+                    top-20
+                    right-0
+                    bottom-15
+                    hidden
+                    items-center
+                "
+            >
                 <ul
                     className="
                         flex
                         flex-col
-                        gap-5
-                        text-center
-                        p-4
+                        gap-4
+                        pl-8
                     "
                 >
-                    {
-                        navMenuItems.map((items) => (
-                            <li
-                                key={items.id}
-                                className={`
-                                    text-lg
-                            `}>
-                                <Link
-                                    href={items.href}
-                                    className={`
-                                        ${ darkMode
-                                            ? "text-[var(--dark-main-text)]"
-                                            : "text-[var(--light-main-text)]"
-                                        }
-                                `}>
-                                    {items.title}
-                                </Link>
-                            </li>
-                        ))
-                    }
+                    {navMenu.map((items) => (
+                        <li
+                            key={items.id}
+                            className="
+                                text-3xl
+                                sm:text-2xl
+                                md:text-3xl
+                                tracking-wider
+                                cursor-pointer
+                            "
+                        >
+                            {items.title}
+                        </li>
+                    ))}
                 </ul>
-            </div>
-
-            <div
-                className={`
-                    flex
-                    items-center
-                    justify-center
-                    gap-6
-                    ${darkMode ? "text-[var(--dark-main-text)]" : "text-[var(--light-main-text)]"}
-            `}>
-                <button
-                    className="text-2xl cursor-pointer bg-origin-content"
-                    onClick={handleDarkMode}
-                >
-                    {
-                        darkMode ? <IoSunnySharp className="text-3xl" /> : <IoMoon />
-                    }
-                </button>
-                <button
-                    className="text-3xl cursor-pointer"
-                    onClick={handleNavOpen}
-                >
-                    { navOpen ? <GiHamburgerMenu /> : <CgClose /> }
-                </button>
             </div>
         </nav>
     );
