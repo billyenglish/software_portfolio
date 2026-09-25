@@ -1,75 +1,70 @@
 "use client";
-import { useContext } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa6";
-import ThemeContext from "../themecontext/themecontext";
 
-
-const socialLinks = [
-    {
-        icons: <FaGithub />,
-        link: "/",
-        id: 0
-    },
-    {
-        icons: <FaLinkedin />,
-        link: "/",
-        id: 1
-    },
-    {
-        icons: <FaEnvelope />,
-        link: "/",
-        id: 2
-    }
+const navMenuIconFooter = [
+    { icon: <FaGithub />, id: 0 },
+    { icon: <FaLinkedin />, id: 1 },
+    { icon: <FaEnvelope />, id: 2 },
 ];
 
 export default function Footer() {
 
-    const { darkMode } = useContext(ThemeContext);
+    const currentYear = new Date().getFullYear();
 
     return (
         <footer
             className="
                 absolute
                 bottom-0
-                left-0
-                w-full
-                h-15
+                w-screen
+                h-14
                 flex
                 justify-between
                 items-center
-                p-6
+                pt-8
+                pb-8
+                pl-8
+                pr-8
             "
         >
             <div>
                 <p
-                    className={`
-                        ${darkMode ? "text-[var(--dark-accent)]" : "text-[var(--light-main-text)]"}
-                `}>
-                    &copy; 2026 Billy English. All rights reserved.
+                    className="
+                        flex
+                        items-center
+                        text-md
+                        font-medium
+                        gap-2
+                        cursor-pointer
+                    "
+                >
+                    <span className="text-xl sm:text-md md:text-md font-medium">&copy;</span>
+                    <span>{currentYear}</span>
+                    <span className="text-md tracking-tighter">Billy English <span className="hidden md:inline lg:inline">| Software Engineer</span></span>
                 </p>
             </div>
 
             <div>
-                <ul className={`
-                    flex
-                    justify-center
-                    items-center
-                    gap-6
-                    text-2xl
-                    ${darkMode ? "text-[var(--dark-accent)]" : "text-[var(--light-main-text)]"}
-                `}>
-                    {
-                    socialLinks.map((socialLink) => (
-                        <i
-                            key={socialLink.id}
-                            className={`cursor-pointer"
-                        `}>
-                            {socialLink.icons}
-                        </i>
-                    ))
-                    }
+                <ul
+                    className="
+                        flex
+                        gap-6
+                    "
+                >
+                    {navMenuIconFooter.map((items) => (
+                        <li
+                            key={items.id}
+                            className="
+                                text-2xl
+                                font-semibold
+                                cursor-pointer
+                            "
+                        >
+                            {items.icon}
+                        </li>
+                    ))}
                 </ul>
             </div>
         </footer>
-    )
-}
+    );
+};
