@@ -21,6 +21,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Billy English | Software Engineer",
   description: "Software Engineer Portfolio",
+  icons: {
+    icon: "https://chatgpt.com/s/m_6abaa81a5a088191a87c04919c667a7e"
+  }
 };
 
 export default function RootLayout({
