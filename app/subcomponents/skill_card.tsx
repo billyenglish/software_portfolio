@@ -1,9 +1,15 @@
 "use client";
+import { ReactNode } from "react";
+
+type SkillCardType = {
+    icon: ReactNode;
+    title: string;
+}
 
 export default function SkillCards({
     icon,
     title,
-}) {
+}:SkillCardType) {
 
     return (
         <div
@@ -14,12 +20,12 @@ export default function SkillCards({
                 justify-center
             "
         >
-            <i>
-                <icon
-                    className="
-                        text-5xl
-                    "
-                />
+            <i
+                className="
+                    text-5xl
+                "
+            >
+                {icon}
             </i>
             <p
                 className="
