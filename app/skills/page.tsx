@@ -57,6 +57,8 @@ export default function Skill() {
                         text-5xl
                         tracking-tight
                         font-light
+                        underline
+                        underline-offset-2
                     "
                 >
                     Skills
