@@ -16,7 +16,6 @@ export default function Contact() {
                     flex
                     flex-col
                     items-center
-                    justify-center
                     gap-8
                 "
             >
@@ -25,6 +24,7 @@ export default function Contact() {
                         text-5xl
                         font-extralight
                         tracking-tight
+                        mt-40
                     "
                 >
                     Contact
@@ -34,6 +34,7 @@ export default function Contact() {
                     className="
                         flex
                         flex-col
+                        items-center
                         gap-4
                         h-100
                         w-100
@@ -45,12 +46,57 @@ export default function Contact() {
                             className="
                                 border
                                 h-12
-                                w-100
+                                w-110
                             "
                             placeholder="Full Name"
+                            required
                         />
                     </div>
                     <div>
+                        <input
+                            type="email"
+                            className="
+                                border
+                                h-12
+                                w-110
+                            "
+                            placeholder="Email"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="text"
+                            className="
+                                border
+                                h-12
+                                w-110
+                            "
+                            placeholder="What is this about?"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <textarea
+                            name="subject-textarea"
+                            id=""
+                            className="
+                                border
+                                h-70
+                                w-110
+                                resize-none
+                                overflow-y-auto
+                            "
+                            required
+                        >
+                        </textarea>
+                    </div>
+                    <div
+                        className="
+                            flex
+                            gap-4
+                        "
+                    >
                         <Button
                             buttonText="
                                 Submit
@@ -59,6 +105,24 @@ export default function Contact() {
                                 border
                                 pt-1
                                 pb-1
+                                w-20
+                                rounded-sm
+                                text-lg
+                                cursor-pointer
+                            "
+                        />
+                        <Button
+                            buttonText="
+                                Clear
+                            "
+                            className="
+                                border
+                                pt-1
+                                pb-1
+                                w-20
+                                rounded-sm
+                                text-lg
+                                cursor-pointer
                             "
                         />
                     </div>
